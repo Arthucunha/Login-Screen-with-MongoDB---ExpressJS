@@ -26,11 +26,11 @@ function App() {
           <form action="" className='space-y-6'>
             <div>
               <label htmlFor="" className='text-sm font-bold text-gray-600 block'>Nome de usuário</label>
-              <input type="text" className='w-full p-2 border border-gray-300 rounded mt-1' />
+              <input type="text" className='w-full p-1 border border-gray-300 rounded mt-1' />
             </div>
             <div>
               <label htmlFor="" className='text-sm font-bold text-gray-600 block'>Senha</label>
-              <input type="password" className='w-full p-2 border border-gray-300 rounded mt-1' />
+              <input type="password" className='w-full p-1 border border-gray-300 rounded mt-1' />
             </div>
             <div>
               <button className='w-full py-2 px-4 bg-blue-600 hover:bg-clue-700 rounded-md text-white text-sm  '>Entrar</button>
