@@ -7,9 +7,11 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path = "/login" element={<Login />} />
-        <Route path = "/dashboard" element={<Dashboard />} />
-      </Routes>
+      {/* Default route - loads Login when the base URL is accessed */}
+      <Route index element={<Login />} /> 
+      <Route path="/login" element={<Login />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
     </>
   );
 }
