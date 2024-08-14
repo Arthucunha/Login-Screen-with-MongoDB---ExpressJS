@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+
+    const navigate = useNavigate();
 
     const handleSubmit = async (event:React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
@@ -22,6 +25,9 @@ const Login = () => {
         // Login bem-sucedido
         console.log(data.message); // Exibe a mensagem do servidor
         // Redirecione o usuário ou faça outras ações necessárias
+        setTimeout(() => {
+          navigate('/dashboard'); 
+        }, 500);
       } else {
         // Credenciais inválidas
         setErrorMessage(data.message);
