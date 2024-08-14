@@ -14,10 +14,22 @@ router.get("/", async (req, res) => {
   });
 
 router.post("/", async (req, res) => {
-  let collection = await db.collection("User");
-  let newDocument = req.body;
-  let result = await collection.insertOne(newDocument);
-  res.send(result).status(204);
-});
-
+    try {
+      const { username, password } = req.body;
+      const collection = await db.collection("User");
+  
+      const user = await collection.findOne({ username });
+  
+      if (user && user.password === password) {
+        // Autenticação bem-sucedida
+        res.status(200).json({ message: "Logado com sucesso!" });
+      } else {
+        // Credenciais inválidas
+        res.status(401).json({ message: "Credenciais inválidas!" });
+      }
+    } catch (error) {
+      console.error("Erro durante o login:", error);
+      res.status(500).json({ message: "Erro no servidor!" });
+    }
+  });
 export default router;
