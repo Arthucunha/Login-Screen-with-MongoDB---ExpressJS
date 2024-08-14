@@ -12,3 +12,12 @@ router.get("/", async (req, res) => {
   
     res.send(results).status(200);
   });
+
+router.post("/", async (req, res) => {
+  let collection = await db.collection("User");
+  let newDocument = req.body;
+  let result = await collection.insertOne(newDocument);
+  res.send(result).status(204);
+});
+
+export default router;
