@@ -1,22 +1,20 @@
-// import React from 'react'
-
-// const Dashboard = () => {
-//     return (
-//         <div>Dashboard</div>
-//     )
-// }
-
-// export default Dashboard
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Dashboard = () => {
+  const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    // Recuperar o nome de usuário do localStorage quando o componente for montado
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+  }, []); 
+
   return (
     <div className="flex flex-col items-center justify-center h-screen"> 
-      {/* O contêiner acima centraliza o conteúdo vertical e horizontalmente */}
       <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-gray-800"> 
-        {/* Texo grande e responsivo */}
-        Bem-Vindo!
+        Bem-vindo {username ? username : ''}! 
       </h1>
     </div>
   );

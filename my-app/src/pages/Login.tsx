@@ -24,6 +24,7 @@ const Login = () => {
       if (response.ok) {
         // Login bem-sucedido
         console.log(data.message); // Exibe a mensagem do servidor
+        localStorage.setItem('username', username);
         // Redirecione o usuário ou faça outras ações necessárias
         setTimeout(() => {
           navigate('/dashboard'); 
