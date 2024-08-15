@@ -47,9 +47,11 @@ const Login = () => {
             <div>
               <label htmlFor="username" className='text-sm font-bold text-gray-600 block'>Nome de usuário</label>
               <input 
-                type="text" 
+                id='username'
+                name='usernameInput'
+                type="text"
+                placeholder='example@example.com' 
                 className='w-full p-1 border border-gray-300 rounded mt-1' 
-                id='username' 
                 value={username} 
                 onChange={(e) => setUsername(e.target.value)} 
               />
@@ -57,9 +59,11 @@ const Login = () => {
             <div>
               <label htmlFor="password" className='text-sm font-bold text-gray-600 block'>Senha</label>
               <input 
-                type="password" 
-                className='w-full p-1 border border-gray-300 rounded mt-1' 
                 id='password' 
+                type="password" 
+                name='passwordInput'
+                className='w-full p-1 border border-gray-300 rounded mt-1' 
+                placeholder='********'
                 value={password} 
                 onChange={(e) => setPassword(e.target.value)} 
               />
